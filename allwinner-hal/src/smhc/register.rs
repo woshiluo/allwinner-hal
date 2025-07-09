@@ -1020,6 +1020,11 @@ impl InterruptStateRaw {
             Interrupt::ResponseError => Self(self.0 | Self::RE),
         }
     }
+
+    #[inline]
+    pub const fn clear_all_interrupt(self) -> Self {
+        Self(0)
+    }
 }
 
 /// Command FSM states.
@@ -1593,7 +1598,7 @@ impl DmaControl {
         Self(self.0 | Self::IDMAC_RST)
     }
     /// Check if dma is reset.
-    pub const fn is_dma_reset(self) -> bool {
+    pub const fn is_dma_reset_cleared(self) -> bool {
         (self.0 & Self::IDMAC_RST) == 0
     }
 }

@@ -96,12 +96,12 @@ core::arch::global_asm! {
 
 #[cfg(feature = "d1")]
 pub use {
-    self::soc::d1::{__rom_init_params, Peripherals},
+    self::soc::d1::{Peripherals, __rom_init_params},
     allwinner_hal::ccu::Clocks,
 };
 #[cfg(feature = "v821")]
 pub use {
-    self::soc::v821::{__rom_init_params, Peripherals},
+    self::soc::v821::{Peripherals, __rom_init_params},
     allwinner_hal::ccu::Clocks,
 };
 
